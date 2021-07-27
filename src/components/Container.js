@@ -64,7 +64,7 @@ const Container = () => {
 
     const handleChange = (string) => {
         string = string.replaceAll(/\s/g, "");
-        string = string.replaceAll(/([8-9][0-9]|\d{3,})/g, "");
+        string = string.replaceAll(/([5-9][0-9]|\d{3,})/g, "");
         string = string.replaceAll(/\d{3}/g, "");
         string = string.replaceAll(/\s\s/g, " ");
         string = string.replaceAll(/\s,/g, ",");
