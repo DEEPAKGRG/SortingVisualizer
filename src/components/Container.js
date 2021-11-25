@@ -40,7 +40,7 @@ const Container = () => {
    
     const notify=(sort,a,b,time)=>toast(({ closeToast }) =>
     <div> 
-        <div style={{fontWeight: '800'}}>Hurrey {sort} Sort Completed!!! 😃</div>
+        <div style={{fontWeight: '800'}}>Hurray {sort} Sort Completed!!! 😃</div>
         <div style={{fontWeight: '800'}} >Comparsions {a}</div>
         <div style={{fontWeight: '800'}} >Swaps {b}</div>
         <div style={{fontWeight: '800'}} >Time {time}</div>
