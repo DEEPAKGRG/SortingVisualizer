@@ -28,7 +28,6 @@ const Container = () => {
         setSize(20);
         setArray(tmp);
         let text = tmp.toString();
-        console.log(text)
         setCustom(text);
     }
     
@@ -36,11 +35,10 @@ const Container = () => {
     const [arr,setArray] = useState(getRandomArray(size));
     const [lap,setLap] = useState(400);
     const [custom,setCustom] = useState(arr.toString());
-    const [cusArray,setCusArray] = useState([]);
    
     const notify=(sort,a,b,time)=>toast(({ closeToast }) =>
     <div> 
-        <div style={{fontWeight: '800'}}>Hurrey {sort} Sort Completed!!! 😃</div>
+        <div style={{fontWeight: '800'}}>Hurray {sort} Sort Completed!!! 😃</div>
         <div style={{fontWeight: '800'}} >Comparsions {a}</div>
         <div style={{fontWeight: '800'}} >Swaps {b}</div>
         <div style={{fontWeight: '800'}} >Time {time}</div>
@@ -105,7 +103,7 @@ const Container = () => {
                     document.getElementById(`bar${x-1}`).style.backgroundColor = "#FFBCBC";
                     document.getElementById(`bar${x}`).style.backgroundColor = "#548CA8";
                     document.getElementById(`bar${x+1}`).style.backgroundColor = "#548CA8";
-                    if(x===tmp.length-y-2){
+                    if(x===tmp.length-y-2 && check==0){
                         document.getElementById(`bar${x}`).style.backgroundColor = "#FFBCBC";
                         document.getElementById(`bar${x+1}`).style.backgroundColor = "#78DEC7";
                     }   
@@ -160,14 +158,18 @@ const Container = () => {
                 let newArray=tmp.slice();
                 let x=j,y=i;
                 setTimeout(() => {
-                    for(var k=0;k<size;k++)
-                         document.getElementById(`bar${k}`).style.backgroundColor = "#FFBCBC"; 
                     for(var k=0;k<=y;k++)
                          document.getElementById(`bar${k}`).style.backgroundColor = "#78DEC7";     
-                    document.getElementById(`bar${x}`).style.backgroundColor =  "#548CA8";
-                    document.getElementById(`bar${x-1}`).style.backgroundColor = "#548CA8";
-                    setArray(newArray);    
+                    document.getElementById(`bar${x-1}`).style.backgroundColor =  "#548CA8";
+                    document.getElementById(`bar${x}`).style.backgroundColor = "#548CA8";   
                 }, time+=lap);
+
+                setTimeout(() => {
+                    setArray(newArray); 
+                    document.getElementById(`bar${x}`).style.backgroundColor = "#E93B81";
+                    document.getElementById(`bar${x-1}`).style.backgroundColor = "#E93B81";
+                }, time+=lap);
+
              }
          }
          setTimeout(() => {
@@ -192,7 +194,7 @@ const Container = () => {
          {   let value=tmp[i];
              let key=i;
              let w=i;
-             for(var j=i;j<size;j++)
+             for(var j=i+1;j<size;j++)
              {    
                 comp++;
                 if(value>tmp[j])
@@ -212,10 +214,11 @@ const Container = () => {
 
             }   
              
+             if(key!=i){
              let temp=tmp[i];
              tmp[i]=value;
              tmp[key]=temp;
-             swaps++;
+             swaps++;}
             let newArray=tmp.slice();
             setTimeout(() => {
                 document.getElementById(`bar${w}`).style.backgroundColor =  "#78DEC7";
