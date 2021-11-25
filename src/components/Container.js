@@ -105,7 +105,7 @@ const Container = () => {
                     document.getElementById(`bar${x-1}`).style.backgroundColor = "#FFBCBC";
                     document.getElementById(`bar${x}`).style.backgroundColor = "#548CA8";
                     document.getElementById(`bar${x+1}`).style.backgroundColor = "#548CA8";
-                    if(x===tmp.length-y-2){
+                    if(x===tmp.length-y-2 && check==0){
                         document.getElementById(`bar${x}`).style.backgroundColor = "#FFBCBC";
                         document.getElementById(`bar${x+1}`).style.backgroundColor = "#78DEC7";
                     }   
